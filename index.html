@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamde Rabbi | Network Engineer & Infrastructure Specialist</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
         .font-mono { font-family: 'Fira Code', monospace; }
         body { font-family: 'Inter', sans-serif; }
-        .terminal-glow { text-shadow: 0 0 4px rgba(52, 211, 153, 0.4); }
+        html { scroll-padding-top: 110px; } /* Ensures elements do not hide under the sticky header when clicking nav items */
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 scroll-smooth antialiased">
 
-    <!-- NOC Live Dashboard Banner -->
     <div class="bg-slate-900 border-b border-emerald-950 text-[11px] font-mono text-slate-400 py-1.5 px-6">
         <div class="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-2">
             <div class="flex items-center space-x-4">
@@ -33,8 +31,7 @@
         </div>
     </div>
 
-    <!-- Header / Navigation -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-900">
+    <nav class="sticky top-0 z-50 bg-slate-950 border-b border-slate-900 shadow-xl">
         <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
             <div>
                 <a href="#" class="text-xl font-bold tracking-tight text-white block">Hamde Rabbi</a>
@@ -43,6 +40,7 @@
             <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
                 <a href="#about" class="hover:text-white transition">About</a>
                 <a href="#terminal" class="hover:text-white transition">Console</a>
+                <a href="#playground" class="hover:text-white transition">Playground</a>
                 <a href="#experience" class="hover:text-white transition">Experience</a>
                 <a href="#proficiencies" class="hover:text-white transition">Technical Stack</a>
                 <a href="#matrix" class="hover:text-white transition">Matrix</a>
@@ -51,266 +49,297 @@
         </div>
     </nav>
 
-    <!-- Hero / Profile Section -->
-    <header id="about" class="max-w-5xl mx-auto px-6 pt-16 pb-12">
-        <div class="flex flex-col md:flex-row items-center gap-12">
-            <!-- Profile Image using dp.jpg -->
-            <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 relative">
-                <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-emerald-500 to-cyan-500 animate-pulse blur-sm opacity-20"></div>
-                <img src="dp.jpg" alt="Hamde Rabbi" class="w-full h-full object-cover rounded-2xl border border-slate-800 shadow-2xl relative z-10">
-            </div>
-            
-            <!-- Headline & Meta -->
-            <div class="flex-1 text-center md:text-left">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-2">Hamde Rabbi</h1>
-                <p class="text-lg md:text-xl font-medium text-slate-400 mb-4">Network Engineer, Entrepreneur & Infrastructure Specialist</p>
+    <main class="relative z-10">
+        <header id="about" class="max-w-5xl mx-auto px-6 pt-16 pb-12">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-48 h-48 md:w-64 md:h-64 flex-shrink-0 relative">
+                    <div class="absolute inset-0 rounded-2xl bg-gradient-to-tr from-emerald-500 to-cyan-500 animate-pulse blur-sm opacity-20"></div>
+                    <img src="dp.jpg" alt="Hamde Rabbi" class="w-full h-full object-cover rounded-2xl border border-slate-800 shadow-2xl relative z-10">
+                </div>
                 
-                <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm font-mono text-slate-500 mb-6">
-                    <span class="flex items-center text-slate-400">
-                        <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span> Chattogram, Bangladesh
-                    </span>
-                    <a href="https://www.linkedin.com/in/noyon22" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">| LinkedIn</a>
-                    <a href="https://www.facebook.com/hamdenoyon" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">| Facebook</a>
-                </div>
+                <div class="flex-1 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-2">Hamde Rabbi</h1>
+                    <p class="text-lg md:text-xl font-medium text-slate-400 mb-4">Network Engineer, Entrepreneur & Infrastructure Specialist</p>
+                    
+                    <div class="flex flex-wrap justify-center md:justify-start gap-4 text-sm font-mono text-slate-500 mb-6">
+                        <span class="flex items-center text-slate-400">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span> Chattogram, Bangladesh
+                        </span>
+                        <a href="https://www.linkedin.com/in/noyon22" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">| LinkedIn</a>
+                        <a href="https://www.facebook.com/hamdenoyon" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">| Facebook</a>
+                    </div>
 
-                <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start text-sm">
-                    <a href="mailto:hn@plus.net.bd" class="text-slate-300 hover:text-emerald-400 transition flex items-center justify-center md:justify-start">
-                        <span class="font-mono text-emerald-500 mr-2">@</span> hn@plus.net.bd
-                    </a>
-                    <a href="tel:+8801922124556" class="text-slate-300 hover:text-emerald-400 transition flex items-center justify-center md:justify-start">
-                        <span class="font-mono text-emerald-500 mr-2">tel:</span> +8801922124556
-                    </a>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start text-sm">
+                        <a href="mailto:hn@plus.net.bd" class="text-slate-300 hover:text-emerald-400 transition flex items-center justify-center md:justify-start">
+                            <span class="font-mono text-emerald-500 mr-2">@</span> hn@plus.net.bd
+                        </a>
+                        <a href="tel:+8801922124556" class="text-slate-300 hover:text-emerald-400 transition flex items-center justify-center md:justify-start">
+                            <span class="font-mono text-emerald-500 mr-2">tel:</span> +8801922124556
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Executive Summary Box -->
-        <div class="mt-12 p-8 bg-slate-900/50 rounded-2xl border border-slate-900 relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 font-mono text-xs text-slate-700 select-none">AS_PATH</div>
-            <h2 class="text-xs font-mono tracking-widest uppercase text-emerald-400 mb-3">Executive Summary</h2>
-            <p class="text-slate-300 leading-relaxed text-base md:text-lg font-light">
-                Visionary Technology Executive and Senior Network Engineer with a proven track record of founding, scaling, and managing high-capacity Internet Service Providers (ISPs) and technology ventures. Serving concurrently as Managing Director & CTO at Plusnet Ltd and Director & CTO across multiple networks, combines executive business acumen with elite-level technical expertise. Expert in carrier-grade multi-vendor routing (Juniper, Cisco, MikroTik, Arista, Huawei), large-scale FTTx/OLT deployments, cloud architectures (AWS, Azure), and high-availability network automation. A disruptive engineering leader specializing in network security, cyber security, and ethical hacking, skilled at navigating complex autonomous system traffic, IP allocations, edge CDN infrastructure, and securing robust topologies for thousands of end-users.
-            </p>
-        </div>
-    </header>
-
-    <!-- Interactive Terminal Segment -->
-    <section id="terminal" class="max-w-5xl mx-auto px-6 pb-20 pt-4">
-        <div class="w-full bg-slate-950 rounded-xl border border-slate-800 shadow-2xl overflow-hidden font-mono text-xs md:text-sm">
-            <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800">
-                <div class="flex items-center space-x-2">
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                    <span class="text-xs text-slate-400 pl-2">guest@hamderabbi.pro: ~</span>
-                </div>
-                <span class="text-[10px] text-slate-500 uppercase tracking-widest hidden sm:inline">Interactive Session</span>
-            </div>
-            <div class="p-6 space-y-4 min-h-[255px]" id="terminal-body">
-                <p class="text-slate-500">// Interactive Shell. Quick commands: 
-                    <button onclick="runCommand('ping')" class="text-emerald-400 hover:underline mx-1">[ping]</button>
-                    <button onclick="runCommand('mtr')" class="text-cyan-400 hover:underline mx-1">[mtr]</button>
-                    <button onclick="runCommand('whois')" class="text-purple-400 hover:underline mx-1">[whois]</button>
-                    <button onclick="runCommand('game')" class="text-yellow-400 font-bold hover:underline mx-1">[game] 🔥</button>
+            <div class="mt-12 p-8 bg-slate-900/50 rounded-2xl border border-slate-900 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 font-mono text-xs text-slate-700 select-none">AS_PATH</div>
+                <h2 class="text-xs font-mono tracking-widest uppercase text-emerald-400 mb-3">Executive Summary</h2>
+                <p class="text-slate-300 leading-relaxed text-base md:text-lg font-light">
+                    Visionary Technology Executive and Senior Network Engineer with a proven track record of founding, scaling, and managing high-capacity Internet Service Providers (ISPs) and technology ventures. Serving concurrently as Managing Director & CTO at Plusnet Ltd and Director & CTO across multiple networks, combines executive business acumen with elite-level technical expertise. Expert in carrier-grade multi-vendor routing (Juniper, Cisco, MikroTik, Arista, Huawei), large-scale FTTx/OLT deployments, cloud architectures (AWS, Azure), and high-availability network automation. A disruptive engineering leader specializing in network security, cyber security, and ethical hacking, skilled at navigating complex autonomous system traffic, IP allocations, edge CDN infrastructure, and securing robust topologies for thousands of end-users.
                 </p>
-                <div>
-                    <span class="text-emerald-400">guest@hamderabbi.pro:~$</span>
-                    <span id="terminal-input" class="text-white ml-1"></span><span class="animate-pulse bg-emerald-400 text-slate-950 px-0.5 ml-0.5">_</span>
-                </div>
-                <div id="terminal-output" class="text-slate-300 leading-relaxed whitespace-pre-wrap">Click a quick command above to probe the network infrastructure.</div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <!-- Leadership & Corporate Experience -->
-    <section id="experience" class="bg-slate-900/30 border-y border-slate-900 py-20">
-        <div class="max-w-5xl mx-auto px-6">
+        <section id="terminal" class="max-w-5xl mx-auto px-6 pb-12 pt-4">
+            <div class="w-full bg-slate-950 rounded-xl border border-slate-800 shadow-2xl overflow-hidden font-mono text-xs md:text-sm">
+                <div class="bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        <span class="text-xs text-slate-400 pl-2">guest@hamderabbi.pro: ~</span>
+                    </div>
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest hidden sm:inline">Diagnostic Console</span>
+                </div>
+                <div class="p-6 space-y-4 min-h-[255px]" id="terminal-body">
+                    <p class="text-slate-500">// Infrastructure Diagnostics Shell. Quick commands: 
+                        <button onclick="runCommand('ping')" class="text-emerald-400 hover:underline mx-1">[ping]</button>
+                        <button onclick="runCommand('mtr')" class="text-cyan-400 hover:underline mx-1">[mtr]</button>
+                        <button onclick="runCommand('whois')" class="text-purple-400 hover:underline mx-1">[whois]</button>
+                    </p>
+                    <div>
+                        <span class="text-emerald-400">guest@hamderabbi.pro:~$</span>
+                        <span id="terminal-input" class="text-white ml-1"></span><span class="animate-pulse bg-emerald-400 text-slate-950 px-0.5 ml-0.5">_</span>
+                    </div>
+                    <div id="terminal-output" class="text-slate-300 leading-relaxed whitespace-pre-wrap">Click a diagnostic shortcut command above to probe the target infrastructure loops.</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="playground" class="max-w-5xl mx-auto px-6 pb-20 pt-4 border-t border-slate-900/60">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-white flex items-center">
+                    <span class="font-mono text-cyan-400 mr-2">&gt;_</span> Interactive Playground
+                </h2>
+                <p class="text-slate-400 text-sm mt-1">Explore text-based CLI simulations built inside customized operational matrices.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 font-mono">
+                <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between">
+                    <div class="bg-slate-900/60 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-emerald-400 font-bold">🎮 MINI-GAME 01: NOC DEFENDER</span>
+                        <span class="text-slate-500 text-[10px]">v1.0.4</span>
+                    </div>
+                    <div class="p-5 flex-1 min-h-[300px] flex flex-col justify-between" id="noc-game-container">
+                        <div id="noc-output" class="text-xs text-slate-400 whitespace-pre-wrap">
+                            Your backbone routing logic matrix is targeted by randomized traffic patterns. Protect internal infrastructure configurations.
+                        </div>
+                        <div class="mt-4 pt-4 border-t border-slate-900" id="noc-controls">
+                            <button onclick="startNocGame()" class="w-full text-center text-xs text-slate-950 bg-emerald-400 hover:bg-emerald-500 py-2 rounded font-bold transition">
+                                Initialize NOC Terminal Defender Simulation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between">
+                    <div class="bg-slate-900/60 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-cyan-400 font-bold">🏎️ MINI-GAME 02: CLI CAR RACER</span>
+                        <span class="text-slate-500 text-[10px]">STAGED ROAD MAP</span>
+                    </div>
+                    <div class="p-5 flex-1 min-h-[300px] flex flex-col justify-between" id="car-game-container">
+                        <div id="car-output" class="text-xs text-slate-400 whitespace-pre-wrap leading-tight text-center pt-8">
+                            <span class="text-white font-bold text-sm block mb-2">CLI CAR RACER</span>
+                            Dodge path obstacles (<span class="text-red-500 font-bold">X</span>) along the structural network array lines. Keep driving to clear the engineering stages.
+                        </div>
+                        <div class="mt-4" id="car-controls">
+                            <button onclick="startCarGame()" class="w-full text-center text-xs text-slate-950 bg-cyan-400 hover:bg-cyan-500 py-2 rounded font-bold transition">
+                                Ignite Engine & Race
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="bg-slate-900/30 border-y border-slate-900 py-20">
+            <div class="max-w-5xl mx-auto px-6">
+                <h2 class="text-2xl font-bold text-white mb-12 flex items-center">
+                    <span class="font-mono text-emerald-400 mr-2">&gt;_</span> Leadership & Corporate Experience
+                </h2>
+                
+                <div class="space-y-12 relative border-l-2 border-slate-900 pl-6 md:pl-8 ml-2">
+                    <div class="relative">
+                        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-slate-950"></div>
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Plusnet Ltd</h3>
+                                <p class="text-sm font-mono text-emerald-400">Managing Director & Chief Technology Officer (CTO)</p>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0 px-2 py-1 bg-slate-900 rounded border border-slate-800">Present</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
+                            <li><strong class="text-slate-300">Executive Leadership:</strong> Direct corporate strategy, financial planning, and technology roadmaps for the ISP, aligning infrastructural scaling with rapid subscriber growth.</li>
+                            <li><strong class="text-slate-300">Global Infrastructure & Edge Caching:</strong> Coordinate deployment metrics with the <span class="text-white">Google Global Cache (GGC) team</span>, <span class="text-white">Facebook MNA team</span>, and international edge platforms like <span class="text-white">Baishan CDN</span> to minimize latency.</li>
+                            <li><strong class="text-slate-300">Upstream & Transit Engineering:</strong> Negotiate and manage external upstream transit contracts (including BGP multi-homing strategies with international carriers like <span class="text-white">Cogent</span>) and interface with the Data Control Team and <span class="text-white">APNIC</span> for structural IP space management.</li>
+                            <li><strong class="text-slate-300">Optical Fiber Network & FTTH Expansion:</strong> Drive large-scale FTTx fiber deployments, optimizing optical power budgeting across multi-vendor GPON/EPON platforms and intersecting with various local Telcos in Bangladesh.</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Resource Computer</h3>
+                                <p class="text-sm font-mono text-emerald-400">Director & Chief Technology Officer (CTO)</p>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0 px-2 py-1 bg-slate-900 rounded border border-slate-800">Present</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
+                            <li><strong class="text-slate-300">Infrastructural Oversight:</strong> Spearhead technical governance, designing resilient network configurations and hardware deployment matrices to maintain a 99.99% network SLA.</li>
+                            <li><strong class="text-slate-300">Systems Synchronization:</strong> Oversee the integration of enterprise Network Management Systems (NMS) like Zabbix and LibreNMS to actively map bandwidth, mitigate DDoS attempts, and streamline diagnostics.</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Cube Network</h3>
+                                <p class="text-sm font-mono text-emerald-400">Director & Chief Technology Officer (CTO)</p>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0 px-2 py-1 bg-slate-900 rounded border border-slate-800">Present</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
+                            <li><strong class="text-slate-300">Carrier-Grade Engineering:</strong> Designed and optimized scalable Carrier-Grade NAT (CGNAT) models and internal OSPF/MPLS backbones to efficiently distribute IPv4/IPv6 blocks across regional distribution legs.</li>
+                            <li><strong class="text-slate-300">Edge Security & Firewalls:</strong> Enforce granular stateful firewall filter matrices, protecting subscriber access layers and internal AAA/Radius billing servers from malicious vectors.</li>
+                        </ul>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Kodevite</h3>
+                                <p class="text-sm font-mono text-emerald-400">Chief Executive Officer (CEO)</p>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0 px-2 py-1 bg-slate-900 rounded border border-slate-800">Present</span>
+                        </div>
+                        <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
+                            <li><strong class="text-slate-300">Corporate Direction:</strong> Lead operations, business development, and software/IoT solution integrations, managing a multi-disciplinary tech team to deliver custom networking tools, web solutions, and automated infrastructure frameworks.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proficiencies" class="max-w-5xl mx-auto px-6 py-20">
             <h2 class="text-2xl font-bold text-white mb-12 flex items-center">
-                <span class="font-mono text-emerald-400 mr-2">&gt;_</span> Leadership & Corporate Experience
+                <span class="font-mono text-emerald-400 mr-2">#</span> Core Technical Proficiencies
             </h2>
             
-            <div class="space-y-12 relative border-l-2 border-slate-900 pl-6 md:pl-8 ml-2">
-                <!-- Plusnet Ltd -->
-                <div class="relative">
-                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-slate-950"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Plusnet Ltd</h3>
-                            <p class="text-sm font-mono text-emerald-400">Managing Director & Chief Technology Officer (CTO)</p>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0 px-2 py-1 bg-slate-900 rounded border border-slate-800">Present</span>
-                    </div>
-                    <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
-                        <li><strong class="text-slate-300">Executive Leadership:</strong> Direct corporate strategy, financial planning, and technology roadmaps for the ISP, aligning infrastructural scaling with rapid subscriber growth.</li>
-                        <li><strong class="text-slate-300">Global Infrastructure & Edge Caching:</strong> Coordinate deployment metrics with the <span class="text-white">Google Global Cache (GGC) team</span>, <span class="text-white">Facebook MNA team</span>, and international edge platforms like <span class="text-white">Baishan CDN</span> to minimize latency.</li>
-                        <li><strong class="text-slate-300">Upstream & Transit Engineering:</strong> Negotiate and manage external upstream transit contracts (including BGP multi-homing strategies with international carriers like <span class="text-white">Cogent</span>) and interface with the Data Control Team and <span class="text-white">APNIC</span> for structural IP space management.</li>
-                        <li><strong class="text-slate-300">Optical Fiber Network & FTTH Expansion:</strong> Drive large-scale FTTx fiber deployments, optimizing optical power budgeting across multi-vendor GPON/EPON platforms and intersecting with various local Telcos in Bangladesh.</li>
-                    </ul>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-6 bg-slate-900/40 rounded-xl border border-slate-900">
+                    <h3 class="text-sm font-mono text-emerald-400 mb-2">// Hardware & Ecosystems</h3>
+                    <h4 class="text-lg font-bold text-white mb-3">Routing & Switching (Multi-Vendor)</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">Juniper (MX/PTX), MikroTik RouterOS, Cisco (Nexus/Catalyst), Huawei, Arista.</p>
                 </div>
 
-                <!-- Resource Computer -->
-                <div class="relative">
-                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Resource Computer</h3>
-                            <p class="text-sm font-mono text-emerald-400">Director & Chief Technology Officer (CTO)</p>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0 px-2 py-1 bg-slate-900 rounded border border-slate-800">Present</span>
-                    </div>
-                    <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
-                        <li><strong class="text-slate-300">Infrastructural Oversight:</strong> Spearhead technical governance, designing resilient network configurations and hardware deployment matrices to maintain a 99.99% network SLA.</li>
-                        <li><strong class="text-slate-300">Systems Synchronization:</strong> Oversee the integration of enterprise Network Management Systems (NMS) like Zabbix and LibreNMS to actively map bandwidth, mitigate DDoS attempts, and streamline diagnostics.</li>
-                    </ul>
+                <div class="p-6 bg-slate-900/40 rounded-xl border border-slate-900">
+                    <h3 class="text-sm font-mono text-emerald-400 mb-2">// Security Operations</h3>
+                    <h4 class="text-lg font-bold text-white mb-3">Cyber Security & Ethical Hacking</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">Network architecture hardening, vulnerability mitigation, advanced stateful firewalls, access filter tuning, and telemetry anomaly analysis.</p>
                 </div>
 
-                <!-- Cube Network -->
-                <div class="relative">
-                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Cube Network</h3>
-                            <p class="text-sm font-mono text-emerald-400">Director & Chief Technology Officer (CTO)</p>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0 px-2 py-1 bg-slate-900 rounded border border-slate-800">Present</span>
-                    </div>
-                    <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
-                        <li><strong class="text-slate-300">Carrier-Grade Engineering:</strong> Designed and optimized scalable Carrier-Grade NAT (CGNAT) models and internal OSPF/MPLS backbones to efficiently distribute IPv4/IPv6 blocks across regional distribution legs.</li>
-                        <li><strong class="text-slate-300">Edge Security & Firewalls:</strong> Enforce granular stateful firewall filter matrices, protecting subscriber access layers and internal AAA/Radius billing servers from malicious vectors.</li>
-                    </ul>
+                <div class="p-6 bg-slate-900/40 rounded-xl border border-slate-900">
+                    <h3 class="text-sm font-mono text-emerald-400 mb-2">// Optical Transport</h3>
+                    <h4 class="text-lg font-bold text-white mb-3">Optical Fiber Networks</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">Broad-spectrum OLT deployments (GPON/EPON), distributed fiber topologies, optical loss diagnostics, and physical network layer scaling.</p>
                 </div>
 
-                <!-- Kodevite -->
-                <div class="relative">
-                    <div class="absolute -left-[31px] md:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-700 border-4 border-slate-950"></div>
-                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Kodevite</h3>
-                            <p class="text-sm font-mono text-emerald-400">Chief Executive Officer (CEO)</p>
-                        </div>
-                        <span class="text-xs font-mono text-slate-500 mt-1 md:mt-0 px-2 py-1 bg-slate-900 rounded border border-slate-800">Present</span>
-                    </div>
-                    <ul class="space-y-2 text-sm text-slate-400 list-disc list-inside">
-                        <li><strong class="text-slate-300">Corporate Direction:</strong> Lead operations, business development, and software/IoT solution integrations, managing a multi-disciplinary tech team to deliver custom networking tools, web solutions, and automated infrastructure frameworks.</li>
-                    </ul>
+                <div class="p-6 bg-slate-900/40 rounded-xl border border-slate-900">
+                    <h3 class="text-sm font-mono text-emerald-400 mb-2">// Topology Protocols</h3>
+                    <h4 class="text-lg font-bold text-white mb-3">Protocols & Edge Architecture</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">BGP, OSPF, MPLS, CGNAT, Advanced Policy-Based Routing, Dual-Stack IPv4/IPv6, VLANs, STP/RSTP.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Core Technical Proficiencies -->
-    <section id="proficiencies" class="max-w-5xl mx-auto px-6 py-20">
-        <h2 class="text-2xl font-bold text-white mb-12 flex items-center">
-            <span class="font-mono text-emerald-400 mr-2">#</span> Core Technical Proficiencies
-        </h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="p-6 bg-slate-900/40 rounded-xl border border-slate-900">
-                <h3 class="text-sm font-mono text-emerald-400 mb-2">// Hardware & Ecosystems</h3>
-                <h4 class="text-lg font-bold text-white mb-3">Routing & Switching (Multi-Vendor)</h4>
-                <p class="text-sm text-slate-400 leading-relaxed">Juniper (MX/PTX), MikroTik RouterOS, Cisco (Nexus/Catalyst), Huawei, Arista.</p>
+        <section id="matrix" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-900">
+            <h2 class="text-2xl font-bold text-white mb-8 flex items-center">
+                <span class="font-mono text-emerald-400 mr-2">sh</span> Skills & Capabilities Matrix
+            </h2>
+            
+            <div class="overflow-x-auto rounded-xl border border-slate-900 shadow-xl">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-slate-900 border-b border-slate-800 font-mono text-xs text-slate-400 tracking-wider">
+                            <th class="p-4 w-1/4">Category</th>
+                            <th class="p-4 w-3/4">Executive & Technical Competencies</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-900 text-slate-300">
+                        <tr class="hover:bg-slate-900/20 transition">
+                            <td class="p-4 font-semibold text-white">Executive Leadership</td>
+                            <td class="p-4">ISP Operations, BGP/Transit Negotiations, Technical Project Management, Corporate Strategy</td>
+                        </tr>
+                        <tr class="hover:bg-slate-900/20 transition">
+                            <td class="p-4 font-semibold text-white">Routing & Switching</td>
+                            <td class="p-4">Juniper, MikroTik RouterOS, Cisco Nexus, Huawei, Arista, UniFi ecosystems</td>
+                        </tr>
+                        <tr class="hover:bg-slate-900/20 transition">
+                            <td class="p-4 font-semibold text-white">Security & Auditing</td>
+                            <td class="p-4">Network Security, Cyber Security, Ethical Hacking frameworks, Stateful Firewalls, ACLs</td>
+                        </tr>
+                        <tr class="hover:bg-slate-900/20 transition">
+                            <td class="p-4 font-semibold text-white">Access & Optical</td>
+                            <td class="p-4">Optical Fiber Network architecture, GPON/EPON OLT Devices, FTTx Layer-2/3 Distribution</td>
+                        </tr>
+                        <tr class="hover:bg-slate-900/20 transition">
+                            <td class="p-4 font-semibold text-white">Peering & Partners</td>
+                            <td class="p-4">Google Global Cache (GGC), Facebook MNA, Baishan CDN, MaxMind Geolocation, Cogent Transit, APNIC allocations, Data Control integration, Bangladesh Telcos</td>
+                        </tr>
+                        <tr class="hover:bg-slate-900/20 transition">
+                            <td class="p-4 font-semibold text-white">Systems & Cloud</td>
+                            <td class="p-4">Ubuntu, Linux, Windows Server, AWS VPCs, Microsoft Azure cloud instances</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+        </section>
 
-            <div class="p-6 bg-slate-900/40 rounded-xl border border-slate-900">
-                <h3 class="text-sm font-mono text-emerald-400 mb-2">// Security Operations</h3>
-                <h4 class="text-lg font-bold text-white mb-3">Cyber Security & Ethical Hacking</h4>
-                <p class="text-sm text-slate-400 leading-relaxed">Network architecture hardening, vulnerability mitigation, advanced stateful firewalls, access filter tuning, and telemetry anomaly analysis.</p>
+        <section class="max-w-5xl mx-auto px-6 py-12 border-t border-slate-900">
+            <div class="bg-slate-900/20 rounded-xl border border-slate-900 p-6 md:p-8">
+                <h3 class="text-lg font-bold text-white mb-4">Areas of Expertise & Credentials</h3>
+                <p class="text-sm text-slate-400 mb-4 leading-relaxed">
+                    <span class="text-emerald-400 font-mono">Core Focus:</span> Advanced Carrier-Grade Routing, Telecommunications Management, Hybrid-Cloud Architecture, Systems Hardening, Hardware Diagnostics.
+                </p>
+                <div class="p-4 bg-slate-950 rounded-lg border border-slate-900 text-xs text-slate-500 font-mono">
+                    💡 <span class="text-slate-400">Note:</span> Specific academic degrees and professional credentials (e.g., JNCIA/JNCIP, CCNP, MTCRE) can be seamlessly appended inside this code block block as needed.
+                </div>
             </div>
+        </section>
 
-            <div class="p-6 bg-slate-900/40 rounded-xl border border-slate-900">
-                <h3 class="text-sm font-mono text-emerald-400 mb-2">// Optical Transport</h3>
-                <h4 class="text-lg font-bold text-white mb-3">Optical Fiber Networks</h4>
-                <p class="text-sm text-slate-400 leading-relaxed">Broad-spectrum OLT deployments (GPON/EPON), distributed fiber topologies, optical loss diagnostics, and physical network layer scaling.</p>
-            </div>
-
-            <div class="p-6 bg-slate-900/40 rounded-xl border border-slate-900">
-                <h3 class="text-sm font-mono text-emerald-400 mb-2">// Topology Protocols</h3>
-                <h4 class="text-lg font-bold text-white mb-3">Protocols & Edge Architecture</h4>
-                <p class="text-sm text-slate-400 leading-relaxed">BGP, OSPF, MPLS, CGNAT, Advanced Policy-Based Routing, Dual-Stack IPv4/IPv6, VLANs, STP/RSTP.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills & Capabilities Matrix -->
-    <section id="matrix" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-900">
-        <h2 class="text-2xl font-bold text-white mb-8 flex items-center">
-            <span class="font-mono text-emerald-400 mr-2">sh</span> Skills & Capabilities Matrix
-        </h2>
-        
-        <div class="overflow-x-auto rounded-xl border border-slate-900 shadow-xl">
-            <table class="w-full text-left border-collapse text-sm">
-                <thead>
-                    <tr class="bg-slate-900 border-b border-slate-800 font-mono text-xs text-slate-400 tracking-wider">
-                        <th class="p-4 w-1/4">Category</th>
-                        <th class="p-4 w-3/4">Executive & Technical Competencies</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-900 text-slate-300">
-                    <tr class="hover:bg-slate-900/20 transition">
-                        <td class="p-4 font-semibold text-white">Executive Leadership</td>
-                        <td class="p-4">ISP Operations, BGP/Transit Negotiations, Technical Project Management, Corporate Strategy</td>
-                    </tr>
-                    <tr class="hover:bg-slate-900/20 transition">
-                        <td class="p-4 font-semibold text-white">Routing & Switching</td>
-                        <td class="p-4">Juniper, MikroTik RouterOS, Cisco Nexus, Huawei, Arista, UniFi ecosystems</td>
-                    </tr>
-                    <tr class="hover:bg-slate-900/20 transition">
-                        <td class="p-4 font-semibold text-white">Security & Auditing</td>
-                        <td class="p-4">Network Security, Cyber Security, Ethical Hacking frameworks, Stateful Firewalls, ACLs</td>
-                    </tr>
-                    <tr class="hover:bg-slate-900/20 transition">
-                        <td class="p-4 font-semibold text-white">Access & Optical</td>
-                        <td class="p-4">Optical Fiber Network architecture, GPON/EPON OLT Devices, FTTx Layer-2/3 Distribution</td>
-                    </tr>
-                    <tr class="hover:bg-slate-900/20 transition">
-                        <td class="p-4 font-semibold text-white">Peering & Partners</td>
-                        <td class="p-4">Google Global Cache (GGC), Facebook MNA, Baishan CDN, MaxMind Geolocation, Cogent Transit, APNIC allocations, Data Control integration, Bangladesh Telcos</td>
-                    </tr>
-                    <tr class="hover:bg-slate-900/20 transition">
-                        <td class="p-4 font-semibold text-white">Systems & Cloud</td>
-                        <td class="p-4">Ubuntu, Linux, Windows Server, AWS VPCs, Microsoft Azure cloud instances</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- Education, Credentials & Areas of Expertise -->
-    <section class="max-w-5xl mx-auto px-6 py-12 border-t border-slate-900">
-        <div class="bg-slate-900/20 rounded-xl border border-slate-900 p-6 md:p-8">
-            <h3 class="text-lg font-bold text-white mb-4">Areas of Expertise & Credentials</h3>
-            <p class="text-sm text-slate-400 mb-4 leading-relaxed">
-                <span class="text-emerald-400 font-mono">Core Focus:</span> Advanced Carrier-Grade Routing, Telecommunications Management, Hybrid-Cloud Architecture, Systems Hardening, Hardware Diagnostics.
+        <section id="contact" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-900 text-center">
+            <h3 class="text-3xl font-bold text-white mb-4">Route Request</h3>
+            <p class="text-slate-400 mb-8 max-w-md mx-auto">
+                Looking to collaborate on BGP routing optimization, carrier-grade network hardening, or infrastructure engineering?
             </p>
-            <div class="p-4 bg-slate-950 rounded-lg border border-slate-900 text-xs text-slate-500 font-mono">
-                💡 <span class="text-slate-400">Note:</span> Specific academic degrees and professional credentials (e.g., JNCIA/JNCIP, CCNP, MTCRE) can be seamlessly appended inside this code block block as needed.
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="mailto:hn@plus.net.bd" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold px-6 py-3 rounded-lg transition font-mono">
+                    ping hn@plus.net.bd
+                </a>
+                <a href="mailto:noyon22@gmail.com" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-slate-300 font-semibold px-6 py-3 rounded-lg border border-slate-800 transition font-mono">
+                    alt: noyon22@gmail.com
+                </a>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section id="contact" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-900 text-center">
-        <h3 class="text-3xl font-bold text-white mb-4">Route Request</h3>
-        <p class="text-slate-400 mb-8 max-w-md mx-auto">
-            Looking to collaborate on BGP routing optimization, carrier-grade network hardening, or infrastructure engineering?
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a href="mailto:hn@plus.net.bd" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-semibold px-6 py-3 rounded-lg transition font-mono">
-                ping hn@plus.net.bd
-            </a>
-            <a href="mailto:noyon22@gmail.com" class="w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-slate-300 font-semibold px-6 py-3 rounded-lg border border-slate-800 transition font-mono">
-                alt: noyon22@gmail.com
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="max-w-5xl mx-auto px-6 py-12 text-center text-xs font-mono text-slate-600 border-t border-slate-900">
+    <footer class="max-w-5xl mx-auto px-6 py-12 text-center text-xs font-mono text-slate-600 border-t border-slate-900 relative z-10">
         <div>&copy; 2026 Hamde Rabbi. All rights reserved.</div>
         <div class="text-emerald-500/50 mt-1">Console status: 0 errors | 0 warnings | BGP_STATE: ESTABLISHED</div>
     </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT LOGIC -->
     <script>
         // Real-Time Dynamic Portfolio Uptime Counter
         const startTime = new Date("2026-01-01T00:00:00").getTime();
@@ -326,65 +355,13 @@
             document.getElementById("uptime-counter").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }, 1000);
 
-        // Interactive Terminal Logic & Game Engine
-        let gameScore = 0;
-        let activeGame = false;
-        let currentProblem = {};
-
-        function generateNetworkProblem() {
-            const types = ['ddos', 'broadcast', 'legit'];
-            const type = types[Math.floor(Math.random() * types.length)];
-            
-            if (type === 'ddos') {
-                return { 
-                    text: "CRITICAL: Flood detected from IP 141.101.12.42 attempting port 80 connection (15,000 req/sec). Action?", 
-                    solution: 'drop', 
-                    hint: 'Type "drop" to filter bad traffic or "route" to forward.' 
-                };
-            } else if (type === 'broadcast') {
-                return { 
-                    text: "WARNING: High broadcast packet rate detected on Core Interface vlan-200. Layer 2 Storm? Action?", 
-                    solution: 'drop', 
-                    hint: 'Type "drop" to isolate or "route" to allow.' 
-                };
-            } else {
-                return { 
-                    text: "INCOMING: Valid subscriber handshake query received for CDN video cache cluster allocation. Action?", 
-                    solution: 'route', 
-                    hint: 'Type "route" to transmit or "drop" to discard.' 
-                };
-            }
-        }
-
-        function handleGameInput(action) {
-            const outputEl = document.getElementById("terminal-output");
-            if (!activeGame) return;
-
-            if (action === currentProblem.solution) {
-                gameScore++;
-                outputEl.innerHTML = `<span class="text-emerald-400">✔ SUCCESS! Traffic handled accurately. Score: ${gameScore}</span>\n\n`;
-                if(gameScore >= 5) {
-                    outputEl.innerHTML += `<span class="text-yellow-400 font-bold">🏆 MITIGATION COMPLETE! You've protected the autonomous loop cleanly. Core infrastructure stable.</span>\nType 'game' to restart.`;
-                    activeGame = false;
-                    gameScore = 0;
-                } else {
-                    currentProblem = generateNetworkProblem();
-                    outputEl.innerHTML += `${currentProblem.text}\n\nOptions:\n<button onclick="handleGameInput('route')" class="text-emerald-400 bg-slate-900 px-3 py-1 rounded border border-emerald-800 font-bold hover:bg-emerald-950 mr-2">[ ROUTE ]</button> <button onclick="handleGameInput('drop')" class="text-red-400 bg-slate-900 px-3 py-1 rounded border border-red-800 font-bold hover:bg-red-950">[ DROP ]</button>`;
-                }
-            } else {
-                outputEl.innerHTML = `<span class="text-red-500 font-bold">❌ PACKET MISROUTED! Network crashed or malicious payload hit the AAA Server.</span>\nFinal Score: ${gameScore}\n\nClick [game] to retry.`;
-                activeGame = false;
-                gameScore = 0;
-            }
-        }
-
+        // Professional Diagnostics Terminal Logic
         function runCommand(cmd) {
             const inputEl = document.getElementById("terminal-input");
             const outputEl = document.getElementById("terminal-output");
             
             inputEl.innerText = cmd;
-            outputEl.innerText = "Executing packet transmission...";
-            activeGame = false; // reset game context if they switch away
+            outputEl.innerText = "Querying internal engineering data nodes...";
             
             setTimeout(() => {
                 if (cmd === 'ping') {
@@ -416,20 +393,210 @@
                         "Admin Email: hn@plus.net.bd\n" +
                         "Name Server: CLOUDFLARE_DNS\n" +
                         "Status: ACTIVE, SECURE, HARDENED";
-                } else if (cmd === 'game') {
-                    activeGame = true;
-                    gameScore = 0;
-                    currentProblem = generateNetworkProblem();
-                    outputEl.innerHTML = 
-                        `<span class="text-yellow-400 font-bold">--- NOC TERMINAL DEFENDER v1.0 ---</span>\n` +
-                        `Your backbone is targeted by random anomalous traffic. Clean the stream!\n` +
-                        `Goal: Reach a streak score of 5 consecutive correct decisions.\n\n` +
-                        `${currentProblem.text}\n\n` +
-                        `Options:\n` +
-                        `<button onclick="handleGameInput('route')" class="text-emerald-400 bg-slate-900 px-3 py-1 rounded border border-emerald-800 font-bold hover:bg-emerald-950 mr-2">[ ROUTE ]</button> ` +
-                        `<button onclick="handleGameInput('drop')" class="text-red-400 bg-slate-900 px-3 py-1 rounded border border-red-800 font-bold hover:bg-red-950">[ DROP ]</button>`;
                 }
-            }, 600);
+            }, 400);
+        }
+
+        // GAME 01: NOC Defender Logic
+        let nocScore = 0;
+        let activeNoc = false;
+        let currentProblem = {};
+
+        function generateNetworkProblem() {
+            const types = ['ddos', 'broadcast', 'legit'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            if (type === 'ddos') {
+                return { text: "CRITICAL: Syn flood hit IP block 141.101.12.42 at port 80. Action?", solution: 'drop' };
+            } else if (type === 'broadcast') {
+                return { text: "WARNING: High broadcast loop tracking on Core Interface vlan-200. Layer 2 Storm? Action?", solution: 'drop' };
+            } else {
+                return { text: "INCOMING: Valid handshake request for edge video server content mapping. Action?", solution: 'route' };
+            }
+        }
+
+        function startNocGame() {
+            activeNoc = true;
+            nocScore = 0;
+            currentProblem = generateNetworkProblem();
+            updateNocView();
+        }
+
+        function handleNocInput(action) {
+            if (!activeNoc) return;
+            const outputEl = document.getElementById("noc-output");
+            if (action === currentProblem.solution) {
+                nocScore++;
+                if (nocScore >= 5) {
+                    outputEl.innerHTML = `<span class="text-yellow-400 font-bold">🏆 ARCHITECTURE STABLE!</span>\nYou successfully shielded edge configurations from disruption vectors.`;
+                    activeNoc = false;
+                    resetNocControls();
+                } else {
+                    currentProblem = generateNetworkProblem();
+                    updateNocView();
+                }
+            } else {
+                outputEl.innerHTML = `<span class="text-red-500 font-bold">❌ CORRUPTION WARNING!</span>\nPacket processing failed cleanly. Core switch buffer dropped line connections.\n\nFinal Score: ${nocScore}`;
+                activeNoc = false;
+                resetNocControls();
+            }
+        }
+
+        function updateNocView() {
+            document.getElementById("noc-output").innerHTML = `Streak Score: <span class="text-emerald-400 font-bold">${nocScore}/5</span>\n\n${currentProblem.text}`;
+            document.getElementById("noc-controls").innerHTML = `
+                <div class="flex gap-2">
+                    <button onclick="handleNocInput('route')" class="flex-1 bg-emerald-500 text-slate-950 py-1.5 rounded font-bold text-xs hover:bg-emerald-600">[ ROUTE ]</button>
+                    <button onclick="handleNocInput('drop')" class="flex-1 bg-red-500 text-slate-950 py-1.5 rounded font-bold text-xs hover:bg-red-600">[ DROP ]</button>
+                </div>`;
+        }
+
+        function resetNocControls() {
+            document.getElementById("noc-controls").innerHTML = `
+                <button onclick="startNocGame()" class="w-full text-center text-xs text-slate-950 bg-emerald-400 hover:bg-emerald-500 py-2 rounded font-bold transition">
+                    Run NOC Terminal Defender Simulation Again
+                </button>`;
+        }
+
+        // GAME 02: Stage-Based CLI Car Racer Engine
+        let carInterval = null;
+        let carDistance = 0;
+        let carLane = 1; // 0: Left, 1: Middle, 2: Right
+        let currentStage = 1;
+        let trackMatrix = [];
+        const stageConfigs = {
+            1: { name: "Stage 1: Local Sub-Divisions", target: 25, speed: 220, hazardChance: 0.25 },
+            2: { name: "Stage 2: Highway Expressways", target: 60, speed: 160, hazardChance: 0.35 },
+            3: { name: "Stage 3: Mountain Fiber Passes", target: 100, speed: 110, hazardChance: 0.45 }
+        };
+
+        function startCarGame() {
+            if (carInterval) clearInterval(carInterval);
+            carDistance = 0;
+            carLane = 1;
+            currentStage = 1;
+            trackMatrix = Array(8).fill(null).map(() => [ ' ', ' ', ' ' ]);
+            
+            document.getElementById("car-controls").innerHTML = `
+                <div class="flex flex-col gap-2">
+                    <div class="grid grid-cols-3 gap-2">
+                        <button onclick="moveCar(0)" class="bg-slate-900 border border-slate-700 text-white py-2 rounded font-bold text-xs hover:bg-slate-800">◀ Left</button>
+                        <button onclick="moveCar(1)" class="bg-slate-900 border border-slate-700 text-white py-2 rounded font-bold text-xs hover:bg-slate-800">▲ Mid</button>
+                        <button onclick="moveCar(2)" class="bg-slate-900 border border-slate-700 text-white py-2 rounded font-bold text-xs hover:bg-slate-800">Right ▶</button>
+                    </div>
+                    <button onclick="stopCarGame()" class="text-center text-[10px] text-slate-500 hover:text-red-400 underline mt-1">Stop Game</button>
+                </div>`;
+            
+            runCarLoop();
+        }
+
+        function moveCar(lane) {
+            carLane = lane;
+            renderCarTrack();
+        }
+
+        function runCarLoop() {
+            const config = stageConfigs[currentStage];
+            carInterval = setInterval(() => {
+                carDistance++;
+                
+                trackMatrix.pop();
+                
+                let row = [' ', ' ', ' '];
+                if (Math.random() < config.hazardChance) {
+                    const obstacleLane = Math.floor(Math.random() * 3);
+                    row[obstacleLane] = 'X';
+                }
+                trackMatrix.unshift(row);
+
+                // Collision detection
+                if (trackMatrix[7] && trackMatrix[7][carLane] === 'X') {
+                    endCarGame(false);
+                    return;
+                }
+
+                // Check stage target bounds
+                if (carDistance >= config.target) {
+                    if (currentStage < 3) {
+                        currentStage++;
+                        clearInterval(carInterval);
+                        runCarLoop(); 
+                    } else {
+                        endCarGame(true);
+                        return;
+                    }
+                }
+
+                renderCarTrack();
+            }, config.speed);
+        }
+
+        function renderCarTrack() {
+            const container = document.getElementById("car-output");
+            const config = stageConfigs[currentStage];
+            
+            let html = `<div class="text-left w-full max-w-[240px] mx-auto text-xs text-slate-300">`;
+            html += `<div class="text-cyan-400 font-bold mb-0.5">${config.name}</div>`;
+            html += `<div class="text-slate-500 text-[10px] mb-2">Distance Tracker: ${carDistance} / ${config.target} km</div>`;
+            html += `<div class="border-y border-slate-800 py-1 font-mono leading-none tracking-widest bg-slate-950">`;
+
+            for (let i = 0; i < 8; i++) {
+                let r = trackMatrix[i] || [' ', ' ', ' '];
+                let lineStr = " | ";
+                for (let l = 0; l < 3; l++) {
+                    if (i === 7 && l === carLane) {
+                        lineStr += `<span class="text-yellow-400 font-bold">▲</span> |`;
+                    } else if (r[l] === 'X') {
+                        lineStr += `<span class="text-red-500 font-bold">X</span> |`;
+                    } else {
+                        lineStr += `  |`;
+                    }
+                }
+                html += lineStr + "\n";
+            }
+            html += `</div></div>`;
+            container.innerHTML = html;
+        }
+
+        function endCarGame(victory) {
+            clearInterval(carInterval);
+            const container = document.getElementById("car-output");
+            if (victory) {
+                container.innerHTML = `
+                    <div class="text-center pt-6">
+                        <span class="text-yellow-400 font-bold text-lg block mb-1">🏁 CHAMPION! 🏁</span>
+                        <p class="text-xs text-slate-300">All stages successfully traversed without infrastructure crashes.</p>
+                    </div>`;
+            } else {
+                container.innerHTML = `
+                    <div class="text-center pt-6">
+                        <span class="text-red-500 font-bold text-lg block mb-1">💥 CRASHED! 💥</span>
+                        <p class="text-xs text-slate-400">Impact detected! Mission compromised at coordinate index line depth ${carDistance}km.</p>
+                    </div>`;
+            }
+            resetCarControls();
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (!carInterval) return;
+            if (e.key === 'ArrowLeft' && carLane > 0) moveCar(carLane - 1);
+            if (e.key === 'ArrowRight' && carLane < 2) moveCar(carLane + 1);
+        });
+
+        function stopCarGame() {
+            clearInterval(carInterval);
+            document.getElementById("car-output").innerHTML = `
+                <div class="text-xs text-slate-400 text-center pt-8">
+                    <span class="text-white font-bold text-sm block mb-2">ENGINE PARKED</span>
+                    Simulation safely reset inside memory lines.
+                </div>`;
+            resetCarControls();
+        }
+
+        function resetCarControls() {
+            document.getElementById("car-controls").innerHTML = `
+                <button onclick="startCarGame()" class="w-full text-center text-xs text-slate-950 bg-cyan-400 hover:bg-cyan-500 py-2 rounded font-bold transition">
+                    Ignite Engine & Race Again
+                </button>`;
         }
     </script>
 </body>
