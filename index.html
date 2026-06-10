@@ -69,8 +69,8 @@
                     <span class="flex items-center text-slate-400">
                         <span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span> Chattogram, Bangladesh
                     </span>
-                    <a href="#" class="hover:text-emerald-400 transition">| LinkedIn</a>
-                    <a href="#" class="hover:text-emerald-400 transition">| Facebook</a>
+                    <a href="https://www.linkedin.com/in/noyon22" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">| LinkedIn</a>
+                    <a href="https://www.facebook.com/hamdenoyon" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition">| Facebook</a>
                 </div>
 
                 <div class="flex flex-col md:flex-row gap-4 justify-center md:justify-start text-sm">
@@ -106,11 +106,12 @@
                 </div>
                 <span class="text-[10px] text-slate-500 uppercase tracking-widest hidden sm:inline">Interactive Session</span>
             </div>
-            <div class="p-6 space-y-4 min-h-[220px]" id="terminal-body">
+            <div class="p-6 space-y-4 min-h-[255px]" id="terminal-body">
                 <p class="text-slate-500">// Interactive Shell. Quick commands: 
                     <button onclick="runCommand('ping')" class="text-emerald-400 hover:underline mx-1">[ping]</button>
                     <button onclick="runCommand('mtr')" class="text-cyan-400 hover:underline mx-1">[mtr]</button>
                     <button onclick="runCommand('whois')" class="text-purple-400 hover:underline mx-1">[whois]</button>
+                    <button onclick="runCommand('game')" class="text-yellow-400 font-bold hover:underline mx-1">[game] 🔥</button>
                 </p>
                 <div>
                     <span class="text-emerald-400">guest@hamderabbi.pro:~$</span>
@@ -325,13 +326,65 @@
             document.getElementById("uptime-counter").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
         }, 1000);
 
-        // Interactive Terminal Logic
+        // Interactive Terminal Logic & Game Engine
+        let gameScore = 0;
+        let activeGame = false;
+        let currentProblem = {};
+
+        function generateNetworkProblem() {
+            const types = ['ddos', 'broadcast', 'legit'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            
+            if (type === 'ddos') {
+                return { 
+                    text: "CRITICAL: Flood detected from IP 141.101.12.42 attempting port 80 connection (15,000 req/sec). Action?", 
+                    solution: 'drop', 
+                    hint: 'Type "drop" to filter bad traffic or "route" to forward.' 
+                };
+            } else if (type === 'broadcast') {
+                return { 
+                    text: "WARNING: High broadcast packet rate detected on Core Interface vlan-200. Layer 2 Storm? Action?", 
+                    solution: 'drop', 
+                    hint: 'Type "drop" to isolate or "route" to allow.' 
+                };
+            } else {
+                return { 
+                    text: "INCOMING: Valid subscriber handshake query received for CDN video cache cluster allocation. Action?", 
+                    solution: 'route', 
+                    hint: 'Type "route" to transmit or "drop" to discard.' 
+                };
+            }
+        }
+
+        function handleGameInput(action) {
+            const outputEl = document.getElementById("terminal-output");
+            if (!activeGame) return;
+
+            if (action === currentProblem.solution) {
+                gameScore++;
+                outputEl.innerHTML = `<span class="text-emerald-400">✔ SUCCESS! Traffic handled accurately. Score: ${gameScore}</span>\n\n`;
+                if(gameScore >= 5) {
+                    outputEl.innerHTML += `<span class="text-yellow-400 font-bold">🏆 MITIGATION COMPLETE! You've protected the autonomous loop cleanly. Core infrastructure stable.</span>\nType 'game' to restart.`;
+                    activeGame = false;
+                    gameScore = 0;
+                } else {
+                    currentProblem = generateNetworkProblem();
+                    outputEl.innerHTML += `${currentProblem.text}\n\nOptions:\n<button onclick="handleGameInput('route')" class="text-emerald-400 bg-slate-900 px-3 py-1 rounded border border-emerald-800 font-bold hover:bg-emerald-950 mr-2">[ ROUTE ]</button> <button onclick="handleGameInput('drop')" class="text-red-400 bg-slate-900 px-3 py-1 rounded border border-red-800 font-bold hover:bg-red-950">[ DROP ]</button>`;
+                }
+            } else {
+                outputEl.innerHTML = `<span class="text-red-500 font-bold">❌ PACKET MISROUTED! Network crashed or malicious payload hit the AAA Server.</span>\nFinal Score: ${gameScore}\n\nClick [game] to retry.`;
+                activeGame = false;
+                gameScore = 0;
+            }
+        }
+
         function runCommand(cmd) {
             const inputEl = document.getElementById("terminal-input");
             const outputEl = document.getElementById("terminal-output");
             
             inputEl.innerText = cmd;
             outputEl.innerText = "Executing packet transmission...";
+            activeGame = false; // reset game context if they switch away
             
             setTimeout(() => {
                 if (cmd === 'ping') {
@@ -363,6 +416,18 @@
                         "Admin Email: hn@plus.net.bd\n" +
                         "Name Server: CLOUDFLARE_DNS\n" +
                         "Status: ACTIVE, SECURE, HARDENED";
+                } else if (cmd === 'game') {
+                    activeGame = true;
+                    gameScore = 0;
+                    currentProblem = generateNetworkProblem();
+                    outputEl.innerHTML = 
+                        `<span class="text-yellow-400 font-bold">--- NOC TERMINAL DEFENDER v1.0 ---</span>\n` +
+                        `Your backbone is targeted by random anomalous traffic. Clean the stream!\n` +
+                        `Goal: Reach a streak score of 5 consecutive correct decisions.\n\n` +
+                        `${currentProblem.text}\n\n` +
+                        `Options:\n` +
+                        `<button onclick="handleGameInput('route')" class="text-emerald-400 bg-slate-900 px-3 py-1 rounded border border-emerald-800 font-bold hover:bg-emerald-950 mr-2">[ ROUTE ]</button> ` +
+                        `<button onclick="handleGameInput('drop')" class="text-red-400 bg-slate-900 px-3 py-1 rounded border border-red-800 font-bold hover:bg-red-950">[ DROP ]</button>`;
                 }
             }, 600);
         }
