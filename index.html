@@ -5,11 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hamde Rabbi | Network Engineer & Infrastructure Specialist</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
-        .font-mono { font-family: 'Fira Code', monospace; }
-        body { font-family: 'Inter', sans-serif; }
-        html { scroll-padding-top: 110px; } /* Ensures elements do not hide under the sticky header when clicking nav items */
+<style>
+        @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap');
+        
+        body { 
+            font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            letter-spacing: -0.01em; 
+        }
+        
+        .font-mono { 
+            font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+        
+        h1, h2, h3, h4 { 
+            letter-spacing: -0.02em; 
+        }
+        
+        html { scroll-padding-top: 110px; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 scroll-smooth antialiased">
@@ -80,13 +92,40 @@
                 </div>
             </div>
 
-            <div class="mt-12 p-8 bg-slate-900/50 rounded-2xl border border-slate-900 relative overflow-hidden">
-                <div class="absolute top-0 right-0 p-4 font-mono text-xs text-slate-700 select-none">AS_PATH</div>
-                <h2 class="text-xs font-mono tracking-widest uppercase text-emerald-400 mb-3">Executive Summary</h2>
-                <p class="text-slate-300 leading-relaxed text-base md:text-lg font-light">
-                    Visionary Technology Executive and Senior Network Engineer with a proven track record of founding, scaling, and managing high-capacity Internet Service Providers (ISPs) and technology ventures. Serving concurrently as Managing Director & CTO at Plusnet Ltd and Director & CTO across multiple networks, combines executive business acumen with elite-level technical expertise. Expert in carrier-grade multi-vendor routing (Juniper, Cisco, MikroTik, Arista, Huawei), large-scale FTTx/OLT deployments, cloud architectures (AWS, Azure), and high-availability network automation. A disruptive engineering leader specializing in network security, cyber security, and ethical hacking, skilled at navigating complex autonomous system traffic, IP allocations, edge CDN infrastructure, and securing robust topologies for thousands of end-users.
-                </p>
+<div class="mt-12 p-8 bg-slate-950 border border-emerald-900/30 rounded-2xl relative overflow-hidden font-mono shadow-[0_0_20px_rgba(16,185,129,0.05)]">
+    <!-- Decorative Data Headers -->
+    <div class="flex justify-between text-[10px] text-emerald-900 mb-4 border-b border-emerald-900/20 pb-2">
+        <span>[SYSTEM_LOG: IDENTITY_PROFILE]</span>
+        <span>STATUS: AUTHORIZED_ACCESS</span>
+    </div>
+    
+    <h2 class="text-xs tracking-widest uppercase text-emerald-400 mb-3 flex items-center">
+        <span class="w-2 h-2 bg-emerald-500 mr-2 animate-pulse"></span> Executive_Summary.bin
+    </h2>
+    
+    <div class="text-slate-300 leading-relaxed text-sm md:text-base">
+        <span class="text-emerald-600 font-bold">root@node:~$</span> 
+        <span class="text-slate-400 italic">Visionary Technology Executive and Senior Network Engineer with a proven track record of founding, scaling, and managing high-capacity Internet Service Providers (ISPs) and technology ventures. Serving concurrently as Managing Director & CTO at Plusnet Ltd and tech advisor/CTO across multiple networks, combines executive business acumen with elite-level technical expertise. Expert in carrier-grade multi-vendor routing (Juniper, Cisco, MikroTik, Arista, Huawei), large-scale FTTx/OLT deployments, cloud architectures (AWS, Azure), and high-availability network automation. A disruptive engineering leader specializing in network security, cyber security, and ethical hacking, skilled at navigating complex autonomous system traffic, IP allocations, edge CDN infrastructure, and securing robust topologies for thousands of end-users.</span>
+        <br><br>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            <div class="border border-emerald-900/20 p-3 bg-slate-900/50 rounded">
+                <div class="text-emerald-500 text-[10px] mb-1">CORE_ROUTING</div>
+                <div class="text-xs">Juniper/Cisco/MikroTik Expert</div>
             </div>
+            <div class="border border-emerald-900/20 p-3 bg-slate-900/50 rounded">
+                <div class="text-emerald-500 text-[10px] mb-1">SECURITY_STATE</div>
+                <div class="text-xs">Hardening & DDoS Mitigator</div>
+            </div>
+            <div class="border border-emerald-900/20 p-3 bg-slate-900/50 rounded">
+                <div class="text-emerald-500 text-[10px] mb-1">INFRA_SCALE</div>
+                <div class="text-xs">FTTx & Edge Architecture</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Decorative footer scan line -->
+    <div class="absolute bottom-0 left-0 w-full h-[2px] bg-emerald-500/20"></div>
+</div>
         </header>
 
         <section id="terminal" class="max-w-5xl mx-auto px-6 pb-12 pt-4">
@@ -115,51 +154,52 @@
             </div>
         </section>
 
-        <section id="playground" class="max-w-5xl mx-auto px-6 pb-20 pt-4 border-t border-slate-900/60">
-            <div class="mb-6">
-                <h2 class="text-2xl font-bold text-white flex items-center">
-                    <span class="font-mono text-cyan-400 mr-2">&gt;_</span> Interactive Playground
-                </h2>
-                <p class="text-slate-400 text-sm mt-1">Explore text-based CLI simulations built inside customized operational matrices.</p>
-            </div>
+<section id="playground" class="max-w-5xl mx-auto px-6 pb-20 pt-4 border-t border-slate-900/60">
+    <div class="mb-6">
+        <h2 class="text-2xl font-bold text-white flex items-center">
+            <span class="font-mono text-cyan-400 mr-2">&gt;_</span> Interactive Playground
+        </h2>
+        <p class="text-slate-400 text-sm mt-1">Explore text-based CLI simulations built inside customized operational matrices.</p>
+    </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 font-mono">
-                <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between">
-                    <div class="bg-slate-900/60 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between text-xs">
-                        <span class="text-emerald-400 font-bold">🎮 MINI-GAME 01: NOC DEFENDER</span>
-                        <span class="text-slate-500 text-[10px]">v1.0.4</span>
-                    </div>
-                    <div class="p-5 flex-1 min-h-[300px] flex flex-col justify-between" id="noc-game-container">
-                        <div id="noc-output" class="text-xs text-slate-400 whitespace-pre-wrap">
-                            Your backbone routing logic matrix is targeted by randomized traffic patterns. Protect internal infrastructure configurations.
-                        </div>
-                        <div class="mt-4 pt-4 border-t border-slate-900" id="noc-controls">
-                            <button onclick="startNocGame()" class="w-full text-center text-xs text-slate-950 bg-emerald-400 hover:bg-emerald-500 py-2 rounded font-bold transition">
-                                Initialize NOC Terminal Defender Simulation
-                            </button>
-                        </div>
-                    </div>
-                </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 font-mono items-stretch">
+        
+<div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex flex-col">
+    <div class="bg-slate-900/60 px-4 py-3 border-b border-slate-800 flex items-center justify-between text-xs">
+        <span class="text-emerald-400 font-bold tracking-wider">🛡️ NOC TACTICAL DEFENDER</span>
+        <span class="text-slate-500 text-[10px]">L3_ENGINEER</span>
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between" id="noc-game-container">
+        <div id="noc-output" class="text-xs text-slate-400 h-full flex flex-col justify-center text-center">
+            <span class="text-white font-bold text-sm block mb-2">Network Incident Response</span>
+            Analyze incoming alerts and select the correct mitigation protocol to maintain SLA.
+        </div>
+        <div class="mt-8 pt-4 border-t border-slate-900" id="noc-controls">
+            <button onclick="startNocGame()" class="w-full text-center text-xs text-slate-950 bg-emerald-400 hover:bg-emerald-500 py-2.5 rounded font-bold transition">
+                Begin Incident Response
+            </button>
+        </div>
+    </div>
+</div>
 
-                <div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex flex-col justify-between">
-                    <div class="bg-slate-900/60 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between text-xs">
-                        <span class="text-cyan-400 font-bold">🏎️ MINI-GAME 02: CLI CAR RACER</span>
-                        <span class="text-slate-500 text-[10px]">STAGED ROAD MAP</span>
-                    </div>
-                    <div class="p-5 flex-1 min-h-[300px] flex flex-col justify-between" id="car-game-container">
-                        <div id="car-output" class="text-xs text-slate-400 whitespace-pre-wrap leading-tight text-center pt-8">
-                            <span class="text-white font-bold text-sm block mb-2">CLI CAR RACER</span>
-                            Dodge path obstacles (<span class="text-red-500 font-bold">X</span>) along the structural network array lines. Keep driving to clear the engineering stages.
-                        </div>
-                        <div class="mt-4" id="car-controls">
-                            <button onclick="startCarGame()" class="w-full text-center text-xs text-slate-950 bg-cyan-400 hover:bg-cyan-500 py-2 rounded font-bold transition">
-                                Ignite Engine & Race
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="bg-slate-950 border border-slate-800 rounded-xl overflow-hidden flex flex-col">
+    <div class="bg-slate-900/60 px-4 py-3 border-b border-slate-800 flex items-center justify-between text-xs">
+        <span class="text-cyan-400 font-bold tracking-wider">🧠 NOC TECHNICAL QUIZ</span>
+        <span class="text-slate-500 text-[10px]">ENGINEERING VET</span>
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between" id="quiz-game-container">
+        <div id="quiz-output" class="text-xs text-slate-400 flex flex-col items-center justify-center h-full text-center">
+            <span class="text-white font-bold text-sm block mb-2">Network Protocol Challenge</span>
+            Test your knowledge of BGP, OSPF, and optical fiber standards.
+        </div>
+        <div class="mt-8 pt-4 border-t border-slate-900" id="quiz-controls">
+            <button onclick="startQuiz()" class="w-full text-center text-xs text-slate-950 bg-cyan-400 hover:bg-cyan-500 py-2.5 rounded font-bold transition">
+                Start Quiz
+            </button>
+        </div>
+    </div>
+</div>
+</section>
 
         <section id="experience" class="bg-slate-900/30 border-y border-slate-900 py-20">
             <div class="max-w-5xl mx-auto px-6">
@@ -264,48 +304,48 @@
             </div>
         </section>
 
-        <section id="matrix" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-900">
-            <h2 class="text-2xl font-bold text-white mb-8 flex items-center">
-                <span class="font-mono text-emerald-400 mr-2">sh</span> Skills & Capabilities Matrix
-            </h2>
-            
-            <div class="overflow-x-auto rounded-xl border border-slate-900 shadow-xl">
-                <table class="w-full text-left border-collapse text-sm">
-                    <thead>
-                        <tr class="bg-slate-900 border-b border-slate-800 font-mono text-xs text-slate-400 tracking-wider">
-                            <th class="p-4 w-1/4">Category</th>
-                            <th class="p-4 w-3/4">Executive & Technical Competencies</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-slate-900 text-slate-300">
-                        <tr class="hover:bg-slate-900/20 transition">
-                            <td class="p-4 font-semibold text-white">Executive Leadership</td>
-                            <td class="p-4">ISP Operations, BGP/Transit Negotiations, Technical Project Management, Corporate Strategy</td>
-                        </tr>
-                        <tr class="hover:bg-slate-900/20 transition">
-                            <td class="p-4 font-semibold text-white">Routing & Switching</td>
-                            <td class="p-4">Juniper, MikroTik RouterOS, Cisco Nexus, Huawei, Arista, UniFi ecosystems</td>
-                        </tr>
-                        <tr class="hover:bg-slate-900/20 transition">
-                            <td class="p-4 font-semibold text-white">Security & Auditing</td>
-                            <td class="p-4">Network Security, Cyber Security, Ethical Hacking frameworks, Stateful Firewalls, ACLs</td>
-                        </tr>
-                        <tr class="hover:bg-slate-900/20 transition">
-                            <td class="p-4 font-semibold text-white">Access & Optical</td>
-                            <td class="p-4">Optical Fiber Network architecture, GPON/EPON OLT Devices, FTTx Layer-2/3 Distribution</td>
-                        </tr>
-                        <tr class="hover:bg-slate-900/20 transition">
-                            <td class="p-4 font-semibold text-white">Peering & Partners</td>
-                            <td class="p-4">Google Global Cache (GGC), Facebook MNA, Baishan CDN, MaxMind Geolocation, Cogent Transit, APNIC allocations, Data Control integration, Bangladesh Telcos</td>
-                        </tr>
-                        <tr class="hover:bg-slate-900/20 transition">
-                            <td class="p-4 font-semibold text-white">Systems & Cloud</td>
-                            <td class="p-4">Ubuntu, Linux, Windows Server, AWS VPCs, Microsoft Azure cloud instances</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+<section id="matrix" class="max-w-5xl mx-auto px-6 py-20 border-t border-slate-900">
+    <h2 class="text-2xl font-bold text-white mb-8 flex items-center">
+        <span class="font-mono text-emerald-400 mr-2">sh</span> Strategic Technical Matrix
+    </h2>
+    
+    <div class="overflow-x-auto rounded-xl border border-slate-900 shadow-xl">
+        <table class="w-full text-left border-collapse text-sm">
+            <thead>
+                <tr class="bg-slate-900 border-b border-slate-800 font-mono text-xs text-slate-400 tracking-wider">
+                    <th class="p-4 w-1/3">Strategic Domain</th>
+                    <th class="p-4 w-2/3">Advanced Competencies & Operational Tooling</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-900 text-slate-300">
+                <tr class="hover:bg-slate-900/20 transition">
+                    <td class="p-4 font-semibold text-white">Carrier Routing</td>
+                    <td class="p-4">BGP Multi-homing, OSPF/MPLS Core Design, CGNAT Architectures, Policy-Based Routing (PBR)</td>
+                </tr>
+                <tr class="hover:bg-slate-900/20 transition">
+                    <td class="p-4 font-semibold text-white">Infrastructure</td>
+                    <td class="p-4">Multi-vendor Ecosystems (Juniper MX/PTX, Cisco Nexus, MikroTik RouterOS, Huawei, Arista)</td>
+                </tr>
+                <tr class="hover:bg-slate-900/20 transition">
+                    <td class="p-4 font-semibold text-white">Optical Transport</td>
+                    <td class="p-4">GPON/EPON OLT Deployment, Optical Loss Budgeting, FTTx Network Topology Scaling</td>
+                </tr>
+                <tr class="hover:bg-slate-900/20 transition">
+                    <td class="p-4 font-semibold text-white">Security & Hardening</td>
+                    <td class="p-4">Cyber-Security Frameworks, Stateful Firewall Matrices, ACL Auditing, DDoS Anomaly Mitigation</td>
+                </tr>
+                <tr class="hover:bg-slate-900/20 transition">
+                    <td class="p-4 font-semibold text-white">Edge & Transit</td>
+                    <td class="p-4">CDN Caching (GGC/MNA/Baishan), Transit Negotiation, APNIC Prefix Management, Peering Strategy</td>
+                </tr>
+                <tr class="hover:bg-slate-900/20 transition">
+                    <td class="p-4 font-semibold text-white">Systems & Automation</td>
+                    <td class="p-4">NMS/Diagnostic Integration (Zabbix, LibreNMS), Linux/Ubuntu Server, Cloud Scaling (AWS/Azure)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
 
         <section class="max-w-5xl mx-auto px-6 py-12 border-t border-slate-900">
             <div class="bg-slate-900/20 rounded-xl border border-slate-900 p-6 md:p-8">
@@ -397,207 +437,136 @@
             }, 400);
         }
 
-        // GAME 01: NOC Defender Logic
-        let nocScore = 0;
-        let activeNoc = false;
-        let currentProblem = {};
+// NOC TACTICAL DEFENDER LOGIC
+const scenarios = [
+    { q: "WiFi interference detected on 2.4GHz band. Action?", options: ["Change channel to 1, 6, or 11", "Disable SSID broadcast", "Lower transmission power"], a: 0 },
+    { q: "BGP route flapping observed from upstream provider. Action?", options: ["Clear cache", "Apply route-map/prefix-list filter", "Reboot switches"], a: 1 },
+    { q: "Massive volumetric DDoS attack targeting customer IP. Action?", options: ["Null route the target IP", "Flush ARP table", "Upgrade firmware"], a: 0 },
+    { q: "Client complaining of slow WiFi throughput. Action?", options: ["Check Signal-to-Noise Ratio (SNR)", "Reset DHCP server", "Change DNS server"], a: 0 },
+    { q: "DDoS mitigation: Source IPs are spoofed globally. Action?", options: ["Enable BGP Flowspec", "Disable IPv6", "Enable Telnet"], a: 0 }
+];
 
-        function generateNetworkProblem() {
-            const types = ['ddos', 'broadcast', 'legit'];
-            const type = types[Math.floor(Math.random() * types.length)];
-            if (type === 'ddos') {
-                return { text: "CRITICAL: Syn flood hit IP block 141.101.12.42 at port 80. Action?", solution: 'drop' };
-            } else if (type === 'broadcast') {
-                return { text: "WARNING: High broadcast loop tracking on Core Interface vlan-200. Layer 2 Storm? Action?", solution: 'drop' };
-            } else {
-                return { text: "INCOMING: Valid handshake request for edge video server content mapping. Action?", solution: 'route' };
-            }
+let nocIdx = 0;
+let nocScore = 0;
+let timer;
+let timeLeft = 10;
+
+function startNocGame() {
+    nocIdx = 0;
+    nocScore = 0;
+    renderNocScenario();
+}
+
+function renderNocScenario() {
+    clearInterval(timer);
+    timeLeft = 10;
+    
+    const output = document.getElementById("noc-output");
+    const controls = document.getElementById("noc-controls");
+    const s = scenarios[nocIdx];
+
+    output.innerHTML = `
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-white font-bold text-xs">${s.q}</span>
+            <span id="timer-display" class="text-red-400 font-mono font-bold border border-red-900 px-2 rounded">10s</span>
+        </div>`;
+    
+    controls.innerHTML = s.options.map((opt, i) => `
+        <button onclick="handleNocInput(${i})" class="w-full bg-slate-800 hover:bg-emerald-900 text-white py-2 px-3 rounded mb-2 text-xs transition border border-slate-700">${opt}</button>
+    `).join('');
+
+    timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById("timer-display").innerText = timeLeft + "s";
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            handleNocInput(-1); // Timeout penalty
         }
+    }, 1000);
+}
 
-        function startNocGame() {
-            activeNoc = true;
-            nocScore = 0;
-            currentProblem = generateNetworkProblem();
-            updateNocView();
+function handleNocInput(idx) {
+    clearInterval(timer);
+    if (idx === scenarios[nocIdx].a) {
+        nocScore++;
+    }
+    
+    nocIdx++;
+    if (nocIdx < scenarios.length) {
+        renderNocScenario();
+    } else {
+        document.getElementById("noc-output").innerHTML = `
+            <div class="text-center">
+                <span class="text-emerald-400 font-bold block mb-2">Incident Resolved!</span>
+                <p class="text-sm">Response Accuracy: ${nocScore}/${scenarios.length}</p>
+            </div>`;
+        document.getElementById("noc-controls").innerHTML = `
+            <button onclick="startNocGame()" class="w-full bg-emerald-500 text-slate-950 py-2 rounded font-bold">Restart Response</button>`;
+    }
+}
+// NOC TECHNICAL QUIZ LOGIC - ADVANCED
+const quizQuestions = [
+    { q: "Which BGP attribute is considered the 'well-known mandatory' path attribute?", options: ["AS_PATH", "MED", "Community"], a: 0 },
+    { q: "What is the primary function of an OSPF 'Area 0'?", options: ["Stub routing", "Backbone area", "External redistribution"], a: 1 },
+    { q: "In a GPON network, what does the OLT use to prevent upstream data collisions?", options: ["TDMA", "CDMA", "CSMA/CD"], a: 0 },
+    { q: "Which protocol would you use to prevent Layer 2 loops in an Ethernet network?", options: ["STP/RSTP", "LACP", "VRRP"], a: 0 },
+    { q: "What is the primary benefit of deploying IPv6 over IPv4?", options: ["Larger address space", "Faster packet processing", "No NAT required"], a: 0 }
+];
+
+let currentQuizIndex = 0;
+let quizScore = 0;
+let quizTimer;
+let quizTimeLeft = 15; // 15 seconds for advanced questions
+
+function startQuiz() {
+    currentQuizIndex = 0;
+    quizScore = 0;
+    renderQuiz();
+}
+
+function renderQuiz() {
+    clearInterval(quizTimer);
+    quizTimeLeft = 15;
+    
+    const container = document.getElementById("quiz-output");
+    const controls = document.getElementById("quiz-controls");
+    const q = quizQuestions[currentQuizIndex];
+
+    container.innerHTML = `
+        <div class="flex justify-between items-center mb-4">
+            <span class="text-white font-bold text-xs">${q.q}</span>
+            <span id="quiz-timer-display" class="text-cyan-400 font-mono font-bold border border-cyan-900 px-2 rounded">15s</span>
+        </div>`;
+    
+    controls.innerHTML = q.options.map((opt, i) => `
+        <button onclick="checkAnswer(${i})" class="w-full bg-slate-800 hover:bg-slate-700 text-white py-2 px-3 rounded mb-2 text-xs transition border border-slate-700">${opt}</button>
+    `).join('');
+
+    quizTimer = setInterval(() => {
+        quizTimeLeft--;
+        document.getElementById("quiz-timer-display").innerText = quizTimeLeft + "s";
+        if (quizTimeLeft <= 0) {
+            clearInterval(quizTimer);
+            checkAnswer(-1); // Timeout penalty
         }
+    }, 1000);
+}
 
-        function handleNocInput(action) {
-            if (!activeNoc) return;
-            const outputEl = document.getElementById("noc-output");
-            if (action === currentProblem.solution) {
-                nocScore++;
-                if (nocScore >= 5) {
-                    outputEl.innerHTML = `<span class="text-yellow-400 font-bold">🏆 ARCHITECTURE STABLE!</span>\nYou successfully shielded edge configurations from disruption vectors.`;
-                    activeNoc = false;
-                    resetNocControls();
-                } else {
-                    currentProblem = generateNetworkProblem();
-                    updateNocView();
-                }
-            } else {
-                outputEl.innerHTML = `<span class="text-red-500 font-bold">❌ CORRUPTION WARNING!</span>\nPacket processing failed cleanly. Core switch buffer dropped line connections.\n\nFinal Score: ${nocScore}`;
-                activeNoc = false;
-                resetNocControls();
-            }
-        }
-
-        function updateNocView() {
-            document.getElementById("noc-output").innerHTML = `Streak Score: <span class="text-emerald-400 font-bold">${nocScore}/5</span>\n\n${currentProblem.text}`;
-            document.getElementById("noc-controls").innerHTML = `
-                <div class="flex gap-2">
-                    <button onclick="handleNocInput('route')" class="flex-1 bg-emerald-500 text-slate-950 py-1.5 rounded font-bold text-xs hover:bg-emerald-600">[ ROUTE ]</button>
-                    <button onclick="handleNocInput('drop')" class="flex-1 bg-red-500 text-slate-950 py-1.5 rounded font-bold text-xs hover:bg-red-600">[ DROP ]</button>
-                </div>`;
-        }
-
-        function resetNocControls() {
-            document.getElementById("noc-controls").innerHTML = `
-                <button onclick="startNocGame()" class="w-full text-center text-xs text-slate-950 bg-emerald-400 hover:bg-emerald-500 py-2 rounded font-bold transition">
-                    Run NOC Terminal Defender Simulation Again
-                </button>`;
-        }
-
-        // GAME 02: Stage-Based CLI Car Racer Engine
-        let carInterval = null;
-        let carDistance = 0;
-        let carLane = 1; // 0: Left, 1: Middle, 2: Right
-        let currentStage = 1;
-        let trackMatrix = [];
-        const stageConfigs = {
-            1: { name: "Stage 1: Local Sub-Divisions", target: 25, speed: 220, hazardChance: 0.25 },
-            2: { name: "Stage 2: Highway Expressways", target: 60, speed: 160, hazardChance: 0.35 },
-            3: { name: "Stage 3: Mountain Fiber Passes", target: 100, speed: 110, hazardChance: 0.45 }
-        };
-
-        function startCarGame() {
-            if (carInterval) clearInterval(carInterval);
-            carDistance = 0;
-            carLane = 1;
-            currentStage = 1;
-            trackMatrix = Array(8).fill(null).map(() => [ ' ', ' ', ' ' ]);
-            
-            document.getElementById("car-controls").innerHTML = `
-                <div class="flex flex-col gap-2">
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="moveCar(0)" class="bg-slate-900 border border-slate-700 text-white py-2 rounded font-bold text-xs hover:bg-slate-800">◀ Left</button>
-                        <button onclick="moveCar(1)" class="bg-slate-900 border border-slate-700 text-white py-2 rounded font-bold text-xs hover:bg-slate-800">▲ Mid</button>
-                        <button onclick="moveCar(2)" class="bg-slate-900 border border-slate-700 text-white py-2 rounded font-bold text-xs hover:bg-slate-800">Right ▶</button>
-                    </div>
-                    <button onclick="stopCarGame()" class="text-center text-[10px] text-slate-500 hover:text-red-400 underline mt-1">Stop Game</button>
-                </div>`;
-            
-            runCarLoop();
-        }
-
-        function moveCar(lane) {
-            carLane = lane;
-            renderCarTrack();
-        }
-
-        function runCarLoop() {
-            const config = stageConfigs[currentStage];
-            carInterval = setInterval(() => {
-                carDistance++;
-                
-                trackMatrix.pop();
-                
-                let row = [' ', ' ', ' '];
-                if (Math.random() < config.hazardChance) {
-                    const obstacleLane = Math.floor(Math.random() * 3);
-                    row[obstacleLane] = 'X';
-                }
-                trackMatrix.unshift(row);
-
-                // Collision detection
-                if (trackMatrix[7] && trackMatrix[7][carLane] === 'X') {
-                    endCarGame(false);
-                    return;
-                }
-
-                // Check stage target bounds
-                if (carDistance >= config.target) {
-                    if (currentStage < 3) {
-                        currentStage++;
-                        clearInterval(carInterval);
-                        runCarLoop(); 
-                    } else {
-                        endCarGame(true);
-                        return;
-                    }
-                }
-
-                renderCarTrack();
-            }, config.speed);
-        }
-
-        function renderCarTrack() {
-            const container = document.getElementById("car-output");
-            const config = stageConfigs[currentStage];
-            
-            let html = `<div class="text-left w-full max-w-[240px] mx-auto text-xs text-slate-300">`;
-            html += `<div class="text-cyan-400 font-bold mb-0.5">${config.name}</div>`;
-            html += `<div class="text-slate-500 text-[10px] mb-2">Distance Tracker: ${carDistance} / ${config.target} km</div>`;
-            html += `<div class="border-y border-slate-800 py-1 font-mono leading-none tracking-widest bg-slate-950">`;
-
-            for (let i = 0; i < 8; i++) {
-                let r = trackMatrix[i] || [' ', ' ', ' '];
-                let lineStr = " | ";
-                for (let l = 0; l < 3; l++) {
-                    if (i === 7 && l === carLane) {
-                        lineStr += `<span class="text-yellow-400 font-bold">▲</span> |`;
-                    } else if (r[l] === 'X') {
-                        lineStr += `<span class="text-red-500 font-bold">X</span> |`;
-                    } else {
-                        lineStr += `  |`;
-                    }
-                }
-                html += lineStr + "\n";
-            }
-            html += `</div></div>`;
-            container.innerHTML = html;
-        }
-
-        function endCarGame(victory) {
-            clearInterval(carInterval);
-            const container = document.getElementById("car-output");
-            if (victory) {
-                container.innerHTML = `
-                    <div class="text-center pt-6">
-                        <span class="text-yellow-400 font-bold text-lg block mb-1">🏁 CHAMPION! 🏁</span>
-                        <p class="text-xs text-slate-300">All stages successfully traversed without infrastructure crashes.</p>
-                    </div>`;
-            } else {
-                container.innerHTML = `
-                    <div class="text-center pt-6">
-                        <span class="text-red-500 font-bold text-lg block mb-1">💥 CRASHED! 💥</span>
-                        <p class="text-xs text-slate-400">Impact detected! Mission compromised at coordinate index line depth ${carDistance}km.</p>
-                    </div>`;
-            }
-            resetCarControls();
-        }
-
-        document.addEventListener('keydown', function(e) {
-            if (!carInterval) return;
-            if (e.key === 'ArrowLeft' && carLane > 0) moveCar(carLane - 1);
-            if (e.key === 'ArrowRight' && carLane < 2) moveCar(carLane + 1);
-        });
-
-        function stopCarGame() {
-            clearInterval(carInterval);
-            document.getElementById("car-output").innerHTML = `
-                <div class="text-xs text-slate-400 text-center pt-8">
-                    <span class="text-white font-bold text-sm block mb-2">ENGINE PARKED</span>
-                    Simulation safely reset inside memory lines.
-                </div>`;
-            resetCarControls();
-        }
-
-        function resetCarControls() {
-            document.getElementById("car-controls").innerHTML = `
-                <button onclick="startCarGame()" class="w-full text-center text-xs text-slate-950 bg-cyan-400 hover:bg-cyan-500 py-2 rounded font-bold transition">
-                    Ignite Engine & Race Again
-                </button>`;
-        }
+function checkAnswer(idx) {
+    clearInterval(quizTimer);
+    if (idx === quizQuestions[currentQuizIndex].a) quizScore++;
+    currentQuizIndex++;
+    if (currentQuizIndex < quizQuestions.length) {
+        renderQuiz();
+    } else {
+        document.getElementById("quiz-output").innerHTML = `
+            <div class="text-center">
+                <span class="text-cyan-400 font-bold block mb-2">Technical Assessment Complete!</span>
+                <p class="text-sm">Final Score: ${quizScore}/${quizQuestions.length}</p>
+            </div>`;
+        document.getElementById("quiz-controls").innerHTML = `<button onclick="startQuiz()" class="w-full bg-cyan-400 text-slate-950 py-2 rounded font-bold">Restart Assessment</button>`;
+    }
+}
     </script>
 </body>
 </html>
