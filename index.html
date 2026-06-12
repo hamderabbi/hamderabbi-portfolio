@@ -439,22 +439,47 @@
         }
 
 // NOC TACTICAL DEFENDER LOGIC
-const scenarios = [
-    { q: "WiFi interference detected on 2.4GHz band. Action?", options: ["Change channel to 1, 6, or 11", "Disable SSID broadcast", "Lower transmission power"], a: 0 },
-    { q: "BGP route flapping observed from upstream provider. Action?", options: ["Clear cache", "Apply route-map/prefix-list filter", "Reboot switches"], a: 1 },
-    { q: "Massive volumetric DDoS attack targeting customer IP. Action?", options: ["Null route the target IP", "Flush ARP table", "Upgrade firmware"], a: 0 },
-    { q: "Client complaining of slow WiFi throughput. Action?", options: ["Check Signal-to-Noise Ratio (SNR)", "Reset DHCP server", "Change DNS server"], a: 0 },
-    { q: "DDoS mitigation: Source IPs are spoofed globally. Action?", options: ["Enable BGP Flowspec", "Disable IPv6", "Enable Telnet"], a: 0 }
+const allScenarios = [
+    // --- LEVEL 1: PHYSICAL & L2 (The "Quick Fix" Phase) ---
+    { q: "Client reports no WiFi access. Check first?", options: ["Check DHCP lease/SNR", "Reboot ISP core", "Replace fiber optic cable"], a: 0 },
+    { q: "Port is in 'err-disabled' state. Action?", options: ["Check 'show int status'", "Reload switch", "Upgrade IOS"], a: 0 },
+    { q: "Trunk link not passing VLAN 20. Action?", options: ["Check allowed list (show trunk)", "Reboot switch", "Change cable"], a: 0 },
+    { q: "High co-channel interference on 2.4GHz. Action?", options: ["Adjust channel/width", "Disable SSID", "Lower Power"], a: 0 },
+    
+    // --- LEVEL 2: NETWORK SERVICES (The "Service Triage" Phase) ---
+    { q: "DHCP relay not working. Action?", options: ["Verify 'ip helper-address'", "Reset Client", "Disable NAT"], a: 0 },
+    { q: "DNS resolution failing for specific domains. Action?", options: ["Verify DNS forwarders", "Restart PC", "Change VLAN"], a: 0 },
+    { q: "Users report 'No Internet', but internal pings work. Action?", options: ["Check DNS configuration", "Replace switch", "Reboot ISP modem"], a: 0 },
+    { q: "NAT failing for internal clients. Action?", options: ["Check 'show ip nat translations'", "Reboot Gateway", "Change MTU"], a: 0 },
+    
+    // --- LEVEL 3: ADVANCED ROUTING & MIKROTIK (The "NOC Specialist" Phase) ---
+    { q: "OSPF neighbors stuck in 'Init' state. Action?", options: ["Verify Hello/Dead timers", "Clear ARP", "Change Hostname"], a: 0 },
+    { q: "MikroTik PPPoE client not connecting. Action?", options: ["Check 'Log' for pppoe errors", "Flush DNS", "Reset Router"], a: 0 },
+    { q: "MikroTik CPU usage at 100%. Action?", options: ["Check 'Tools -> Profile'", "Reboot Device", "Disable all interfaces"], a: 0 },
+    { q: "Public IP unreachable from outside. Action?", options: ["Check NAT/Firewall rules", "Update firmware", "Reset ARP table"], a: 0 },
+    
+    // --- LEVEL 4: ELITE ISP OPERATIONS (The "Carrier-Grade" Phase) ---
+    { q: "Customer BGP prefix not advertised. Action?", options: ["Check 'Routing Filters'", "Clear MAC table", "Enable Telnet"], a: 0 },
+    { q: "Sudden jitter on WAN connection. Action?", options: ["Check interface for CRC errors", "Reset Modem", "Flush Cache"], a: 0 },
+    { q: "Wireless client roaming flapping. Action?", options: ["Check AP signal overlap", "Reset AP", "Disable 5GHz"], a: 0 },
+    { q: "Weak signal in conference room. Action?", options: ["Perform site survey/add AP", "Flush DNS", "Enable WPA3"], a: 0 }
 ];
 
+let scenarios = [];
 let nocIdx = 0;
 let nocScore = 0;
+let streak = 0;
+let bestStreak = 0;
 let timer;
 let timeLeft = 10;
 
 function startNocGame() {
+    // Dynamic Randomization: pick 5 unique random scenarios
+    scenarios = [...allScenarios].sort(() => 0.5 - Math.random()).slice(0, 5);
     nocIdx = 0;
     nocScore = 0;
+    streak = 0;
+    bestStreak = 0;
     renderNocScenario();
 }
 
@@ -469,7 +494,8 @@ function renderNocScenario() {
     output.innerHTML = `
         <div class="flex justify-between items-center mb-4">
             <span class="text-white font-bold text-xs">${s.q}</span>
-            <span id="timer-display" class="text-red-400 font-mono font-bold border border-red-900 px-2 rounded">10s</span>
+            <span class="text-yellow-500 text-xs">Streak: ${streak}</span>
+            <span id="timer-display" class="text-red-400 font-mono font-bold border border-red-900 px-2 rounded">${timeLeft}s</span>
         </div>`;
     
     controls.innerHTML = s.options.map((opt, i) => `
@@ -481,7 +507,7 @@ function renderNocScenario() {
         document.getElementById("timer-display").innerText = timeLeft + "s";
         if (timeLeft <= 0) {
             clearInterval(timer);
-            handleNocInput(-1); // Timeout penalty
+            handleNocInput(-1);
         }
     }, 1000);
 }
@@ -490,6 +516,10 @@ function handleNocInput(idx) {
     clearInterval(timer);
     if (idx === scenarios[nocIdx].a) {
         nocScore++;
+        streak++;
+        if (streak > bestStreak) bestStreak = streak;
+    } else {
+        streak = 0;
     }
     
     nocIdx++;
@@ -499,63 +529,58 @@ function handleNocInput(idx) {
         document.getElementById("noc-output").innerHTML = `
             <div class="text-center">
                 <span class="text-emerald-400 font-bold block mb-2">Incident Resolved!</span>
-                <p class="text-sm">Response Accuracy: ${nocScore}/${scenarios.length}</p>
+                <p class="text-sm">Accuracy: ${nocScore}/${scenarios.length}</p>
+                <p class="text-xs text-yellow-500 font-bold">Best Streak: ${bestStreak} in a row</p>
             </div>`;
         document.getElementById("noc-controls").innerHTML = `
             <button onclick="startNocGame()" class="w-full bg-emerald-500 text-slate-950 py-2 rounded font-bold">Restart Response</button>`;
     }
 }
-// NOC TECHNICAL QUIZ LOGIC - ADVANCED
-const quizQuestions = [
-    { q: "Which BGP attribute is considered the 'well-known mandatory' path attribute?", options: ["AS_PATH", "MED", "Community"], a: 0 },
-    { q: "What is the primary function of an OSPF 'Area 0'?", options: ["Stub routing", "Backbone area", "External redistribution"], a: 1 },
-    { q: "In a GPON network, what does the OLT use to prevent upstream data collisions?", options: ["TDMA", "CDMA", "CSMA/CD"], a: 0 },
-    { q: "Which protocol would you use to prevent Layer 2 loops in an Ethernet network?", options: ["STP/RSTP", "LACP", "VRRP"], a: 0 },
-    { q: "What is the primary benefit of deploying IPv6 over IPv4?", options: ["Larger address space", "Faster packet processing", "No NAT required"], a: 0 }
+// --- UPDATED NOC TECHNICAL QUIZ LOGIC ---
+
+const allQuizQuestions = [
+    { q: "Which BGP attribute is 'Well-Known Mandatory'?", options: ["AS_PATH", "MED", "Community"], a: 0 },
+    { q: "Purpose of OSPF 'Area 0'?", options: ["Stub routing", "Backbone area", "External"], a: 1 },
+    { q: "GPON upstream collision avoidance?", options: ["TDMA", "CDMA", "CSMA/CD"], a: 0 },
+    { q: "MPLS Label Stack depth limit?", options: ["Unlimited", "No strict limit", "Hardware dependent"], a: 2 },
+    { q: "What does 'RIB' stand for?", options: ["Routing Info Base", "Route Internet Base", "Remote IP Block"], a: 0 },
+    { q: "Default AD of eBGP?", options: ["110", "20", "100"], a: 1 },
+    { q: "What is the function of VRRP?", options: ["Default gateway redundancy", "VLAN tagging", "Traffic shaping"], a: 0 },
+    { q: "Which layer of the OSI model does BGP operate at?", options: ["Layer 3", "Layer 4", "Layer 7"], a: 2 },
+    { q: "What is the primary goal of LACP?", options: ["Link aggregation", "Loop prevention", "IP assignment"], a: 0 },
+    { q: "In IPv6, what is the 'link-local' address prefix?", options: ["fe80::/10", "ff00::/8", "2000::/3"], a: 0 }
 ];
 
-let currentQuizIndex = 0;
-let quizScore = 0;
-let quizTimer;
-let quizTimeLeft = 15; // 15 seconds for advanced questions
+let quizQuestions = [], currentQuizIndex = 0, quizScore = 0;
 
 function startQuiz() {
-    currentQuizIndex = 0;
+    // Randomizes and selects 5 questions per session
+    quizQuestions = [...allQuizQuestions].sort(() => 0.5 - Math.random()).slice(0, 5);
+    currentQuizIndex = 0; 
     quizScore = 0;
     renderQuiz();
 }
 
 function renderQuiz() {
-    clearInterval(quizTimer);
-    quizTimeLeft = 15;
-    
+    const q = quizQuestions[currentQuizIndex];
     const container = document.getElementById("quiz-output");
     const controls = document.getElementById("quiz-controls");
-    const q = quizQuestions[currentQuizIndex];
 
     container.innerHTML = `
-        <div class="flex justify-between items-center mb-4">
-            <span class="text-white font-bold text-xs">${q.q}</span>
-            <span id="quiz-timer-display" class="text-cyan-400 font-mono font-bold border border-cyan-900 px-2 rounded">15s</span>
+        <div class="text-center text-white font-bold text-xs mb-4">
+            Question ${currentQuizIndex + 1}/5: ${q.q}
         </div>`;
     
     controls.innerHTML = q.options.map((opt, i) => `
-        <button onclick="checkAnswer(${i})" class="w-full bg-slate-800 hover:bg-slate-700 text-white py-2 px-3 rounded mb-2 text-xs transition border border-slate-700">${opt}</button>
+        <button onclick="checkAnswer(${i})" class="w-full bg-slate-800 hover:bg-cyan-900 text-white py-2 px-3 rounded mb-2 text-xs transition border border-slate-700">
+            ${opt}
+        </button>
     `).join('');
-
-    quizTimer = setInterval(() => {
-        quizTimeLeft--;
-        document.getElementById("quiz-timer-display").innerText = quizTimeLeft + "s";
-        if (quizTimeLeft <= 0) {
-            clearInterval(quizTimer);
-            checkAnswer(-1); // Timeout penalty
-        }
-    }, 1000);
 }
 
 function checkAnswer(idx) {
-    clearInterval(quizTimer);
     if (idx === quizQuestions[currentQuizIndex].a) quizScore++;
+    
     currentQuizIndex++;
     if (currentQuizIndex < quizQuestions.length) {
         renderQuiz();
@@ -565,7 +590,8 @@ function checkAnswer(idx) {
                 <span class="text-cyan-400 font-bold block mb-2">Technical Assessment Complete!</span>
                 <p class="text-sm">Final Score: ${quizScore}/${quizQuestions.length}</p>
             </div>`;
-        document.getElementById("quiz-controls").innerHTML = `<button onclick="startQuiz()" class="w-full bg-cyan-400 text-slate-950 py-2 rounded font-bold">Restart Assessment</button>`;
+        document.getElementById("quiz-controls").innerHTML = `
+            <button onclick="startQuiz()" class="w-full bg-cyan-400 text-slate-950 py-2 rounded font-bold">Restart Assessment</button>`;
     }
 }
     </script>
